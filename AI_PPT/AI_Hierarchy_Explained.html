@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI, ML, DL, Neural Networks & Gen AI — The Complete Visual Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=DM+Mono:wght@400;500&display=swap');
+
+  :root {
+    --ai: #E63946;
+    --ai-bg: #FEF2F2;
+    --ai-light: #FEE2E2;
+    --ml: #1D4ED8;
+    --ml-bg: #EFF6FF;
+    --ml-light: #DBEAFE;
+    --dl: #7C3AED;
+    --dl-bg: #F5F3FF;
+    --dl-light: #EDE9FE;
+    --nn: #059669;
+    --nn-bg: #ECFDF5;
+    --nn-light: #D1FAE5;
+    --gen: #D97706;
+    --gen-bg: #FFFBEB;
+    --gen-light: #FEF3C7;
+    --agi: #BE185D;
+    --agi-bg: #FDF2F8;
+    --dark: #0F172A;
+    --heading: #1E293B;
+    --body: #475569;
+    --muted: #94A3B8;
+    --border: #E2E8F0;
+    --surface: #F8FAFC;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #FFFFFF;
+    color: var(--body);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(124,58,237,0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 80%, rgba(230,57,70,0.04) 0%, transparent 50%),
+      #FFFFFF;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.1s forwards;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 5.5vw, 4rem);
+    font-weight: 800;
+    color: var(--heading);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.25s forwards;
+  }
+
+  .hero h1 .gradient-text {
+    background: linear-gradient(135deg, var(--ai), var(--dl), var(--ml));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero .subtitle {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 580px;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.4s forwards;
+  }
+
+  .hero .scroll-cue {
+    opacity: 0;
+    animation: fadeUp 0.7s 0.8s forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 2.5rem;
+  }
+
+  .scroll-cue .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--muted);
+    animation: bounce 1.5s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); opacity: 0.4; }
+    50% { transform: translateY(8px); opacity: 1; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(25px); }
+    to { opacity:1; transform: translateY(0); }
+  }
+
+  /* ── Section base ── */
+  .section {
+    padding: 5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-divider {
+    width: 100%;
+    padding: 5rem 2rem;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-divider .inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    color: var(--heading);
+    margin-bottom: 0.4rem;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 650px;
+    margin-bottom: 2.5rem;
+  }
+
+  /* ── MYTH BUSTER (subset ≠ weaker) ── */
+  .myth-section {
+    background: linear-gradient(135deg, #FEF2F2 0%, #F5F3FF 50%, #EFF6FF 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 5rem 2rem;
+  }
+
+  .myth-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .myth-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+
+  .myth-card .wrong {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.8rem;
+    background: #FEE2E2;
+    color: #B91C1C;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .myth-card .right {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.8rem;
+    background: #D1FAE5;
+    color: #065F46;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .myth-card h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--heading);
+    margin-bottom: 0.5rem;
+  }
+
+  .myth-card p {
+    font-size: 0.95rem;
+    color: var(--body);
+    line-height: 1.7;
+  }
+
+  /* Analogy boxes */
+  .analogy-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 700px) {
+    .analogy-pair { grid-template-columns: 1fr; }
+  }
+
+  .analogy-box {
+    padding: 1.2rem 1.4rem;
+    border-radius: 14px;
+    border-left: 4px solid;
+  }
+
+  .analogy-box .emoji { font-size: 1.8rem; margin-bottom: 0.4rem; }
+  .analogy-box h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .analogy-box p { font-size: 0.85rem; color: var(--body); line-height: 1.6; }
+  .analogy-box code {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    background: rgba(0,0,0,0.04);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+  }
+
+  /* ── Power Ladder ── */
+  .ladder-strip {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin: 2rem 0;
+    position: relative;
+  }
+
+  .ladder-step {
+    flex: 1;
+    text-align: center;
+    padding: 1.2rem 0.5rem;
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.16,1,0.3,1);
+  }
+
+  .ladder-step.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .ladder-step .step-bar {
+    height: 6px;
+    border-radius: 3px;
+    margin-bottom: 0.8rem;
+    transform: scaleX(0);
+    transition: transform 0.6s cubic-bezier(0.16,1,0.3,1) 0.2s;
+    transform-origin: left;
+  }
+
+  .ladder-step.visible .step-bar {
+    transform: scaleX(1);
+  }
+
+  .ladder-step .step-height {
+    width: 40px;
+    margin: 0 auto 0.5rem;
+    border-radius: 6px;
+    transition: height 0.6s cubic-bezier(0.16,1,0.3,1) 0.4s;
+  }
+
+  .ladder-step .step-icon { font-size: 1.5rem; margin-bottom: 0.3rem; }
+  .ladder-step .step-label { font-size: 0.8rem; font-weight: 700; }
+  .ladder-step .step-power { font-size: 0.65rem; color: var(--muted); margin-top: 0.2rem; }
+
+  .ladder-step .step-arrow {
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+    color: var(--muted);
+    z-index: 2;
+  }
+
+  /* ── Interactive Nesting ── */
+  .nesting-wrap {
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .nesting-diagram {
+    position: relative;
+    width: 500px;
+    height: 400px;
+    flex-shrink: 0;
+  }
+
+  .nest-layer {
+    position: absolute;
+    border-radius: 16px;
+    border: 2px solid;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+    opacity: 0;
+  }
+
+  .nest-layer:hover { transform: scale(1.015); }
+  .nest-layer.active { box-shadow: 0 0 0 3px rgba(0,0,0,0.06); }
+
+  .nest-label {
+    position: absolute;
+    top: 6px; left: 12px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  #n-ai { left:0;top:0;width:500px;height:400px; border-color:var(--ai); background:rgba(230,57,70,0.04); }
+  #n-ml { left:16px;top:48px;width:468px;height:325px; border-color:var(--ml); background:rgba(29,78,216,0.04); }
+  #n-dl { left:32px;top:100px;width:436px;height:248px; border-color:var(--dl); background:rgba(124,58,237,0.05); }
+  #n-nn { left:48px;top:155px;width:188px;height:155px; border-color:var(--nn); background:rgba(5,150,105,0.05); }
+  #n-gen { left:252px;top:155px;width:200px;height:155px; border-color:var(--gen); background:rgba(217,119,6,0.05); }
+
+  .info-panel {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .info-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.4s ease;
+    min-height: 340px;
+  }
+
+  .info-card .info-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-bottom: 0.6rem;
+  }
+
+  .info-card h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--heading);
+    margin-bottom: 0.4rem;
+  }
+
+  .info-card .def {
+    font-size: 0.9rem;
+    color: var(--body);
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .info-card .ex-box {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .info-card .ex-box .ex-title {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.25rem;
+  }
+
+  .info-card .ex-box p {
+    font-size: 0.82rem;
+    color: var(--body);
+    line-height: 1.55;
+  }
+
+  .info-card .industry-ex {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.6rem 0.8rem;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-left: 3px solid;
+    border-radius: 8px;
+  }
+
+  .info-card .industry-ex .ex-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .info-card .industry-ex p { font-size: 0.78rem; color: var(--body); line-height: 1.5; }
+
+  .layer-buttons {
+    display: flex;
+    gap: 0.4rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .lbtn {
+    padding: 0.45rem 0.9rem;
+    border-radius: 8px;
+    border: 2px solid;
+    background: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .lbtn:hover, .lbtn.active { color: #fff; }
+  .lbtn[data-l="ai"] { border-color:var(--ai); color:var(--ai); }
+  .lbtn[data-l="ai"]:hover, .lbtn[data-l="ai"].active { background:var(--ai); color:#fff; }
+  .lbtn[data-l="ml"] { border-color:var(--ml); color:var(--ml); }
+  .lbtn[data-l="ml"]:hover, .lbtn[data-l="ml"].active { background:var(--ml); color:#fff; }
+  .lbtn[data-l="dl"] { border-color:var(--dl); color:var(--dl); }
+  .lbtn[data-l="dl"]:hover, .lbtn[data-l="dl"].active { background:var(--dl); color:#fff; }
+  .lbtn[data-l="nn"] { border-color:var(--nn); color:var(--nn); }
+  .lbtn[data-l="nn"]:hover, .lbtn[data-l="nn"].active { background:var(--nn); color:#fff; }
+  .lbtn[data-l="gen"] { border-color:var(--gen); color:var(--gen); }
+  .lbtn[data-l="gen"]:hover, .lbtn[data-l="gen"].active { background:var(--gen); color:#fff; }
+
+  /* ── Analogy section ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .a-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.4rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.16,1,0.3,1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .a-card.visible { opacity:1; transform:translateY(0); }
+
+  .a-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+
+  .a-card:nth-child(1)::before { background:var(--ai); }
+  .a-card:nth-child(2)::before { background:var(--ml); }
+  .a-card:nth-child(3)::before { background:var(--nn); }
+  .a-card:nth-child(4)::before { background:var(--dl); }
+  .a-card:nth-child(5)::before { background:var(--gen); }
+  .a-card:nth-child(6)::before { background:var(--agi); }
+
+  .a-card .card-icon { font-size: 2rem; margin-bottom: 0.6rem; }
+  .a-card .card-tag { font-size: 0.6rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.3rem; }
+  .a-card h4 { font-size: 1.05rem; font-weight:700; color:var(--heading); margin-bottom:0.3rem; }
+  .a-card p { font-size: 0.85rem; color:var(--body); line-height:1.6; }
+
+  .a-card .code-box {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.5rem 0.7rem;
+    margin-top: 0.6rem;
+    color: var(--body);
+    line-height: 1.5;
+  }
+
+  /* ── Chain animation ── */
+  .chain-section {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+
+  .chain-section .inner { max-width: 1100px; margin: 0 auto; }
+
+  .chain-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+  }
+
+  .chain-node {
+    padding: 0.7rem 1.3rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #fff;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.5s cubic-bezier(0.16,1,0.3,1);
+    cursor: default;
+    position: relative;
+  }
+
+  .chain-node.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .chain-node:hover {
+    transform: scale(1.1);
+  }
+
+  .chain-node .power-bar {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3px;
+    border-radius: 2px;
+    transition: width 0.5s 0.3s ease;
+    width: 0;
+  }
+
+  .chain-node.visible .power-bar {
+    width: 80%;
+  }
+
+  .chain-arrow {
+    font-size: 1.2rem;
+    color: var(--muted);
+    opacity: 0;
+    transition: opacity 0.4s 0.2s;
+  }
+
+  .chain-arrow.visible { opacity: 1; }
+
+  .chain-legend {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  .chain-legend span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .chain-legend .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+  }
+
+  /* ── Takeaway ── */
+  .takeaway {
+    padding: 5rem 2rem;
+    text-align: center;
+    background:
+      radial-gradient(ellipse at 50% 50%, rgba(124,58,237,0.03) 0%, transparent 60%),
+      #FFFFFF;
+  }
+
+  .takeaway-box {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+  }
+
+  .takeaway-box h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--heading);
+    margin-bottom: 1rem;
+  }
+
+  .takeaway-box .key-line {
+    font-size: 1rem;
+    color: var(--body);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .takeaway-box .key-line strong { color: var(--heading); }
+
+  .pulsing-chain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    margin: 1.5rem 0;
+  }
+
+  .pulse-item {
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #fff;
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  .pulse-item:nth-child(1) { background:var(--ai); animation-delay:0s; }
+  .pulse-item:nth-child(3) { background:var(--ml); animation-delay:0.6s; }
+  .pulse-item:nth-child(5) { background:var(--dl); animation-delay:1.2s; }
+  .pulse-item:nth-child(7) { background:var(--gen); animation-delay:1.8s; }
+
+  .pulse-arrow { color:var(--muted); font-size:1rem; }
+
+  @keyframes pulse {
+    0%,100% { transform:scale(1); box-shadow: 0 0 0 0 rgba(0,0,0,0); }
+    50% { transform:scale(1.08); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+  }
+
+  .takeaway-box .footer-note {
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 1.5rem;
+    line-height: 1.6;
+  }
+
+  /* ── Reveal ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: all 0.6s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  @media (max-width: 768px) {
+    .nesting-wrap { flex-direction: column; }
+    .nesting-diagram { width:100%; max-width:380px; height:320px; margin:0 auto; }
+    .analogy-pair { grid-template-columns: 1fr; }
+    .ladder-strip { flex-wrap: wrap; }
+    .ladder-step { min-width: 80px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="hero-badge">📚 Interactive Visual Guide</div>
+  <h1>The <span class="gradient-text">AI Family Tree</span><br>Explained</h1>
+  <p class="subtitle">AI, Machine Learning, Deep Learning, Neural Networks, Generative AI & AGI — what they are, how they relate, and why "subset" doesn't mean "weaker".</p>
+  <div class="scroll-cue">
+    Scroll to explore
+    <div class="dot"></div>
+  </div>
+</div>
+
+<!-- ═══ MYTH BUSTER: Subset ≠ Weaker ═══ -->
+<div class="myth-section" id="myth">
+  <div class="myth-inner">
+    <div class="tag reveal" style="color:var(--ai);">⚡ COMMON CONFUSION</div>
+    <div class="section-title reveal">"If DL is More Powerful Than ML,<br>How Can It Be a Subset?"</div>
+    <div class="section-sub reveal">This is the #1 misunderstanding. Let's clear it up with analogies everyone knows.</div>
+
+    <div class="myth-card reveal">
+      <div class="wrong">❌ WRONG way to think about it</div>
+      <h3>"Subset means less powerful"</h3>
+      <p>People hear "DL is a subset of ML" and think it means DL is <em>smaller</em> or <em>weaker</em>. That's because in everyday language, "subset" sounds like "less than." But in this context, it means something different.</p>
+    </div>
+
+    <div class="myth-card reveal">
+      <div class="right">✅ CORRECT way to think about it</div>
+      <h3>"Subset means a more specialized type of"</h3>
+      <p>"All Deep Learning <strong>is</strong> Machine Learning — but not all Machine Learning <strong>is</strong> Deep Learning." DL is a <em>specific, advanced type</em> of ML. It <strong>builds on</strong> ML and adds neural network depth. It's more powerful <em>because</em> it inherits everything from ML and adds more capabilities on top.</p>
+
+      <div class="analogy-pair">
+        <div class="analogy-box" style="background:var(--ai-bg); border-color:var(--ai);">
+          <div class="emoji">🏥</div>
+          <h4 style="color:var(--ai);">Doctor → Surgeon</h4>
+          <p>All surgeons are doctors. But not all doctors are surgeons. Is a surgeon <em>weaker</em> than a doctor? No — a surgeon is a <strong>more specialized, more skilled</strong> type of doctor. Surgeons are a <em>subset</em> of doctors.</p>
+        </div>
+        <div class="analogy-box" style="background:var(--ml-bg); border-color:var(--ml);">
+          <div class="emoji">🚗</div>
+          <h4 style="color:var(--ml);">Car → Sports Car</h4>
+          <p>All sports cars are cars. But not all cars are sports cars. Is a Ferrari <em>weaker</em> than a Toyota? No — it's a <strong>more powerful, specialized</strong> type of car. Sports cars are a <em>subset</em> of cars.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="myth-card reveal">
+      <div class="right">🔑 THE KEY INSIGHT</div>
+      <h3>Each inner layer is MORE powerful — not less</h3>
+      <p>The nesting shows <strong>inheritance</strong>, not weakness. Each inner layer inherits everything from the outer layer and adds something new:</p>
+
+      <div class="analogy-pair" style="grid-template-columns:1fr;">
+        <div class="analogy-box" style="background:#fff; border-color:var(--dl);">
+          <p>
+            <strong style="color:var(--ai);">AI</strong> gave us machines that do intelligent tasks<br>
+            <strong style="color:var(--ml);">ML</strong> added the ability to <em>learn from data</em> (no more hand-written rules)<br>
+            <strong style="color:var(--dl);">DL</strong> added <em>many neural network layers</em> (learns complex abstract patterns)<br>
+            <strong style="color:var(--gen);">Gen AI</strong> added the ability to <em>create new content</em> (text, images, code)<br><br>
+            <code>Each layer = everything before it + a new superpower</code>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ POWER LADDER ═══ -->
+<div class="section" id="ladder-section">
+  <div class="tag reveal" style="color:var(--dl);">POWER INCREASES INWARD</div>
+  <div class="section-title reveal">The Power Ladder</div>
+  <div class="section-sub reveal">Moving inward = more specialized = more powerful. The bar height shows capability.</div>
+
+  <div class="ladder-strip" id="ladderStrip">
+    <div class="ladder-step">
+      <div class="step-bar" style="background:var(--ai);"></div>
+      <div class="step-height" style="height:40px; background:var(--ai-light);"></div>
+      <div class="step-icon">🤖</div>
+      <div class="step-label" style="color:var(--ai);">AI</div>
+      <div class="step-power">Rule-based + learning</div>
+      <div class="step-arrow">⊃</div>
+    </div>
+    <div class="ladder-step">
+      <div class="step-bar" style="background:var(--ml);"></div>
+      <div class="step-height" style="height:60px; background:var(--ml-light);"></div>
+      <div class="step-icon">📈</div>
+      <div class="step-label" style="color:var(--ml);">ML</div>
+      <div class="step-power">Learns from data</div>
+      <div class="step-arrow">⊃</div>
+    </div>
+    <div class="ladder-step">
+      <div class="step-bar" style="background:var(--dl);"></div>
+      <div class="step-height" style="height:85px; background:var(--dl-light);"></div>
+      <div class="step-icon">🔬</div>
+      <div class="step-label" style="color:var(--dl);">Deep Learning</div>
+      <div class="step-power">Many-layered networks</div>
+      <div class="step-arrow">⊃</div>
+    </div>
+    <div class="ladder-step">
+      <div class="step-bar" style="background:var(--nn);"></div>
+      <div class="step-height" style="height:100px; background:var(--nn-light);"></div>
+      <div class="step-icon">🧠</div>
+      <div class="step-label" style="color:var(--nn);">Neural Nets</div>
+      <div class="step-power">The architecture inside</div>
+      <div class="step-arrow">&</div>
+    </div>
+    <div class="ladder-step">
+      <div class="step-bar" style="background:var(--gen);"></div>
+      <div class="step-height" style="height:120px; background:var(--gen-light);"></div>
+      <div class="step-icon">✨</div>
+      <div class="step-label" style="color:var(--gen);">Gen AI</div>
+      <div class="step-power">Creates new content</div>
+    </div>
+  </div>
+
+  <p class="reveal" style="text-align:center; color:var(--muted); font-size:0.85rem; margin-top:1rem;">
+    ↑ Bar height = capability. The innermost "subset" is the <strong>most powerful</strong>, not the weakest.
+  </p>
+</div>
+
+<!-- ═══ INTERACTIVE NESTING DIAGRAM ═══ -->
+<div class="section-divider" id="nest-section">
+  <div class="inner">
+    <div class="tag reveal" style="color:var(--ai);">CLICK TO EXPLORE</div>
+    <div class="section-title reveal">The Nesting Diagram</div>
+    <div class="section-sub reveal">Click any layer to see its definition, examples, and how it relates to the others.</div>
+
+    <div class="nesting-wrap">
+      <div class="nesting-diagram" id="nestDiag">
+        <div class="nest-layer" id="n-ai" onclick="show('ai')"><div class="nest-label" style="color:var(--ai)">Artificial Intelligence</div></div>
+        <div class="nest-layer" id="n-ml" onclick="show('ml')"><div class="nest-label" style="color:var(--ml)">Machine Learning</div></div>
+        <div class="nest-layer" id="n-dl" onclick="show('dl')"><div class="nest-label" style="color:var(--dl)">Deep Learning</div></div>
+        <div class="nest-layer" id="n-nn" onclick="show('nn')"><div class="nest-label" style="color:var(--nn)">Neural Networks</div></div>
+        <div class="nest-layer" id="n-gen" onclick="show('gen')"><div class="nest-label" style="color:var(--gen)">Generative AI</div></div>
+      </div>
+
+      <div class="info-panel">
+        <div class="info-card" id="ic">
+          <div class="info-tag" id="iTag" style="background:var(--ai-bg);color:var(--ai);">LAYER 1</div>
+          <h3 id="iTitle" style="color:var(--ai);">Artificial Intelligence</h3>
+          <p class="def" id="iDef">Any system that performs tasks requiring human-like intelligence — reasoning, learning, perception, or decision-making. This is the broadest category: everything else fits inside it.</p>
+          <div class="ex-box">
+            <div class="ex-title" id="iExT" style="color:var(--ai);">Everyday Example</div>
+            <p id="iExP">Spam filters, voice assistants (Siri, Alexa), GPS navigation, recommendation engines (Netflix, Spotify). Some use rules, some learn from data — all are AI.</p>
+          </div>
+          <div class="industry-ex" id="iInd" style="border-color:var(--ai);">
+            <div class="ex-icon">💡</div>
+            <p id="iIndP">A thermostat that turns on heat at 20°C is rule-based AI. Simple but effective — no learning involved. It's still AI because it automates a decision humans used to make.</p>
+          </div>
+        </div>
+        <div class="layer-buttons">
+          <button class="lbtn active" data-l="ai" onclick="show('ai')">AI</button>
+          <button class="lbtn" data-l="ml" onclick="show('ml')">ML</button>
+          <button class="lbtn" data-l="dl" onclick="show('dl')">DL</button>
+          <button class="lbtn" data-l="nn" onclick="show('nn')">Neural Nets</button>
+          <button class="lbtn" data-l="gen" onclick="show('gen')">Gen AI</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ANALOGY CARDS ═══ -->
+<div class="section" id="analogy-sec">
+  <div class="tag reveal" style="color:var(--gen);">SIMPLE ANALOGIES</div>
+  <div class="section-title reveal">Think of It Like This...</div>
+  <div class="section-sub reveal">Memorable comparisons that make each concept click.</div>
+
+  <div class="cards-grid">
+    <div class="a-card">
+      <div class="card-icon">🏢</div>
+      <div class="card-tag" style="color:var(--ai);">Artificial Intelligence</div>
+      <h4>The Entire Company</h4>
+      <p>AI is like the whole company — every department, every process, every automated system. Some departments use spreadsheets (rule-based), others use advanced analytics (learning). All of it is "the company."</p>
+      <div class="code-box">Company = AI<br>Everything automated lives here</div>
+    </div>
+    <div class="a-card">
+      <div class="card-icon">📊</div>
+      <div class="card-tag" style="color:var(--ml);">Machine Learning</div>
+      <h4>The Analytics Team</h4>
+      <p>ML is like a team that gets better at their job by studying past data. They don't follow a fixed manual — they learn patterns from experience. Show them 100,000 customer records and they'll predict who's likely to cancel.</p>
+      <div class="code-box">Show data → learn patterns → make predictions<br>No one wrote the rules — it figured them out</div>
+    </div>
+    <div class="a-card">
+      <div class="card-icon">🧠</div>
+      <div class="card-tag" style="color:var(--nn);">Neural Networks</div>
+      <h4>A Chain of Experts</h4>
+      <p>Imagine passing a document through a chain of specialists. Expert 1 catches spelling. Expert 2 checks grammar. Expert 3 evaluates logic. Each "layer" refines the work. That's a neural network — layers of processing.</p>
+      <div class="code-box">Raw input → Layer 1 (basics) → Layer 2 (patterns) → Layer 3 (meaning) → Answer</div>
+    </div>
+    <div class="a-card">
+      <div class="card-icon">🔬</div>
+      <div class="card-tag" style="color:var(--dl);">Deep Learning</div>
+      <h4>A 100-Expert Chain</h4>
+      <p>Deep Learning is a neural network with 100+ layers of experts instead of 3. Each layer captures increasingly abstract patterns. The "depth" is what makes it powerful enough to understand images, speech, and language.</p>
+      <div class="code-box">Image → edges → shapes → objects → "That's a dog in a park"<br>100+ layers of progressive understanding</div>
+    </div>
+    <div class="a-card">
+      <div class="card-icon">✨</div>
+      <div class="card-tag" style="color:var(--gen);">Generative AI</div>
+      <h4>The Expert Who Also Writes</h4>
+      <p>Gen AI is a deep learning model that doesn't just analyze — it creates. It's the difference between an analyst who says "Revenue is down 12%" and one who writes a 5-page strategy report with recommendations.</p>
+      <div class="code-box">Old AI: "This review is 87% positive" → label<br>Gen AI: "Here's a professional reply to this review" → new content</div>
+    </div>
+    <div class="a-card">
+      <div class="card-icon">🌟</div>
+      <div class="card-tag" style="color:var(--agi);">AGI (Theoretical)</div>
+      <h4>The Employee Who Can Do Everything</h4>
+      <p>AGI would be a single AI that masters ANY task — writing, coding, designing, strategizing — as well as a human expert. Today we have different AIs for different tasks. AGI would be one AI for everything. It doesn't exist yet.</p>
+      <div class="code-box">Today: different AI for each task ← where we are<br>AGI: one AI that does everything ← theoretical future</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CHAIN SECTION ═══ -->
+<div class="chain-section" id="chain-sec">
+  <div class="inner">
+    <div class="tag reveal" style="color:var(--dl);">THE DEPENDENCY CHAIN</div>
+    <div class="section-title reveal">Remove Any Link, the Rest Collapses</div>
+    <div class="section-sub reveal" style="margin:0 auto 1.5rem;">Gen AI <em>requires</em> Deep Learning, which <em>requires</em> Neural Networks, which <em>is a type of</em> ML, which <em>is a type of</em> AI.</div>
+
+    <div class="chain-flow" id="chainFlow">
+      <div class="chain-node" style="background:var(--ai);">AI<div class="power-bar" style="background:var(--ai);"></div></div>
+      <div class="chain-arrow">⊃</div>
+      <div class="chain-node" style="background:var(--ml);">ML<div class="power-bar" style="background:var(--ml);"></div></div>
+      <div class="chain-arrow">⊃</div>
+      <div class="chain-node" style="background:var(--dl);">DL<div class="power-bar" style="background:var(--dl);"></div></div>
+      <div class="chain-arrow">⊃</div>
+      <div class="chain-node" style="background:var(--nn);">Neural Nets<div class="power-bar" style="background:var(--nn);"></div></div>
+      <div class="chain-arrow">&</div>
+      <div class="chain-node" style="background:var(--gen);">Gen AI<div class="power-bar" style="background:var(--gen);"></div></div>
+    </div>
+
+    <div class="chain-legend reveal">
+      <span><div class="dot" style="background:var(--ai)"></div> Broadest</span>
+      <span>→</span>
+      <span><div class="dot" style="background:var(--gen)"></div> Most specialized & powerful</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TAKEAWAY ═══ -->
+<div class="takeaway">
+  <div class="takeaway-box reveal">
+    <h2>The One Thing to Remember</h2>
+
+    <div class="pulsing-chain">
+      <div class="pulse-item">AI</div>
+      <span class="pulse-arrow">⊃</span>
+      <div class="pulse-item">ML</div>
+      <span class="pulse-arrow">⊃</span>
+      <div class="pulse-item">DL</div>
+      <span class="pulse-arrow">⊃</span>
+      <div class="pulse-item">Gen AI</div>
+    </div>
+
+    <p class="key-line">
+      <strong>"Subset" means "a more specialized type of"</strong> — not "less powerful."<br>
+      Each inner layer inherits everything from the outer layer <strong>and adds a new capability</strong>.<br>
+      The innermost layer is always the <strong>most powerful</strong>, not the weakest.
+    </p>
+
+    <p class="footer-note">
+      "Gen AI isn't a different kind of AI — it's the latest, most powerful layer built on top of 70 years of AI research. Each layer made the next one possible."
+    </p>
+  </div>
+</div>
+
+<script>
+const D = {
+  ai: {
+    tag:"LAYER 1 — THE BROADEST", title:"Artificial Intelligence", color:"var(--ai)", tagBg:"var(--ai-bg)",
+    def:"Any system that performs tasks requiring human-like intelligence — reasoning, learning, perception, or decision-making. This is the broadest category: everything else fits inside it.",
+    exT:"Everyday Examples", exP:"Spam filters, voice assistants (Siri, Alexa), GPS navigation, chess engines, recommendation systems. Some use hand-written rules, some learn from data — all are AI.",
+    indP:"A thermostat that turns on heat at 20°C is rule-based AI. Simple but effective — no learning involved. It's still AI because it automates a decision humans used to make."
+  },
+  ml: {
+    tag:"LAYER 2 — SUBSET OF AI", title:"Machine Learning", color:"var(--ml)", tagBg:"var(--ml-bg)",
+    def:"Instead of writing rules by hand, you feed the computer DATA and let it LEARN the rules itself. The more data it sees, the better it gets. This is what separates ML from traditional rule-based AI.",
+    exT:"How It's Different", exP:"Traditional AI: programmer writes 'IF email has BUY NOW → spam'. ML: show 100,000 labeled emails → system learns spam patterns itself. Nobody writes the rules — it discovers them.",
+    indP:"Email fraud detection: feed millions of transactions labeled fraud/legit → ML learns patterns humans never could (like time-of-day + location + amount combinations that signal fraud)."
+  },
+  dl: {
+    tag:"LAYER 3 — SUBSET OF ML", title:"Deep Learning", color:"var(--dl)", tagBg:"var(--dl-bg)",
+    def:"ML using neural networks with MANY layers (10 to 1000+). 'Deep' literally means 'many layers.' More layers = ability to learn increasingly complex, abstract features from raw data — without human feature engineering.",
+    exT:"Why 'Deep' Matters", exP:"A shallow ML model needs humans to define features ('look for round shapes'). Deep learning discovers features automatically: pixels → edges → shapes → objects → 'that's a dog.' No manual feature engineering.",
+    indP:"Voice assistants: raw sound waves → phonemes → words → sentences → meaning. Each layer abstracts further. A 2-layer network can't do this — you need 50+ layers of progressive understanding."
+  },
+  nn: {
+    tag:"LAYER 4 — THE BUILDING BLOCKS", title:"Neural Networks", color:"var(--nn)", tagBg:"var(--nn-bg)",
+    def:"Mathematical models inspired by biological neurons. Data flows through layers of connected 'nodes' — each applies a weight and passes output to the next layer. Training = adjusting millions of weights until the network produces correct outputs.",
+    exT:"Simple Structure", exP:"Input Layer (raw data) → Hidden Layers (pattern detection) → Output Layer (answer). A 3-layer network is 'shallow.' A 100-layer network is 'deep.' That's literally the only difference between NN and DL — the number of layers.",
+    indP:"Think of it like a relay team: runner 1 passes to runner 2 who passes to runner 3. Each runner (layer) adds speed and precision. More runners (layers) = better final time (accuracy)."
+  },
+  gen: {
+    tag:"LAYER 5 — SUBSET OF DL", title:"Generative AI", color:"var(--gen)", tagBg:"var(--gen-bg)",
+    def:"Deep learning models trained to CREATE new content — text, images, code, music — rather than just classify or predict. Built on Transformers (a deep neural network architecture from 2017). GPT-4 has hundreds of layers and 1.7 trillion parameters.",
+    exT:"Why It's INSIDE DL", exP:"GPT-4 IS a deep neural network. DALL-E IS a deep neural network. They cannot exist without deep learning. That's why Gen AI sits inside DL — it's a specific application of deep learning, not a separate branch of AI.",
+    indP:"The chain: AI → ML → DL → Transformer architecture → GPT-4 → ChatGPT/Copilot. Every layer depends on the one before it. Remove DL and Gen AI is impossible."
+  }
+};
+
+function show(l) {
+  const d = D[l];
+  document.getElementById('iTag').textContent = d.tag;
+  document.getElementById('iTag').style.background = d.tagBg;
+  document.getElementById('iTag').style.color = d.color;
+  document.getElementById('iTitle').style.color = d.color;
+  document.getElementById('iTitle').textContent = d.title;
+  document.getElementById('iDef').textContent = d.def;
+  document.getElementById('iExT').textContent = d.exT;
+  document.getElementById('iExT').style.color = d.color;
+  document.getElementById('iExP').textContent = d.exP;
+  document.getElementById('iInd').style.borderColor = d.color;
+  document.getElementById('iIndP').textContent = d.indP;
+
+  const card = document.getElementById('ic');
+  card.style.opacity = '0';
+  card.style.transform = 'translateX(10px)';
+  requestAnimationFrame(() => { card.style.opacity='1'; card.style.transform='translateX(0)'; });
+
+  document.querySelectorAll('.nest-layer').forEach(e => e.classList.remove('active'));
+  document.getElementById('n-'+l).classList.add('active');
+  document.querySelectorAll('.lbtn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lbtn[data-l="${l}"]`).classList.add('active');
+}
+
+function onScroll() {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.85) el.classList.add('visible');
+  });
+  document.querySelectorAll('.a-card:not(.visible)').forEach((el, i) => {
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.85)
+      setTimeout(() => el.classList.add('visible'), i * 100);
+  });
+  document.querySelectorAll('.chain-node:not(.visible), .chain-arrow:not(.visible)').forEach((el, i) => {
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.85)
+      setTimeout(() => el.classList.add('visible'), i * 120);
+  });
+  document.querySelectorAll('.ladder-step:not(.visible)').forEach((el, i) => {
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.85)
+      setTimeout(() => el.classList.add('visible'), i * 150);
+  });
+
+  const nd = document.getElementById('nestDiag');
+  if (nd && nd.getBoundingClientRect().top < window.innerHeight * 0.8 && !nd.dataset.done) {
+    nd.dataset.done = '1';
+    ['n-ai','n-ml','n-dl','n-nn','n-gen'].forEach((id, i) => {
+      setTimeout(() => { const e = document.getElementById(id); e.style.opacity='1'; e.style.transform='scale(1)'; }, i * 200);
+    });
+  }
+}
+
+document.querySelectorAll('.nest-layer').forEach(el => { el.style.transform='scale(0.95)'; });
+window.addEventListener('scroll', onScroll, {passive:true});
+window.addEventListener('load', () => setTimeout(onScroll, 100));
+
+let cyc;
+function startCyc() {
+  const ls=['ai','ml','dl','nn','gen']; let i=0;
+  cyc=setInterval(()=>{ i=(i+1)%ls.length; show(ls[i]); },4000);
+}
+document.querySelectorAll('.lbtn,.nest-layer').forEach(e=>e.addEventListener('click',()=>clearInterval(cyc)));
+setTimeout(startCyc, 2500);
+</script>
+</body>
+</html>
